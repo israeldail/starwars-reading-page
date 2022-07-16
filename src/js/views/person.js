@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Person = props => {
-    console.log(props)
 	const { store, actions } = useContext(Context);
     console.log(store.person)
     useEffect(() => {
