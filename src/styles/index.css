@@ -50,3 +50,7 @@
     font-size: 75px;
     text-decoration: underline;
 }
+
+#personList {
+    list-style: none;
+}
