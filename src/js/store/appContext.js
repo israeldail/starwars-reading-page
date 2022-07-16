@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getState from "./flux.js";
+import { Home } from "../views/home.js";
 
 // Don't change, here is where we initialize our context, by default it's just going to be null.
 export const Context = React.createContext(null);
@@ -31,7 +32,10 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			state.actions.loadSomeData();
+			fetch("https://www.swapi.tech/api/planets/1")
+				.then((res) => res.json())
+				.then((data) => console.log(data.result))
+				.catch((err) => console.log("error", err))
 			
 		}, []);
 
@@ -41,6 +45,7 @@ const injectContext = PassedComponent => {
 		return (
 			<Context.Provider value={state}>
 				<PassedComponent {...props} />
+				<Home {...props} />
 			</Context.Provider>
 		);
 	};

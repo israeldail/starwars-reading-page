@@ -1,7 +1,7 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import injectContext from "../store/appContext";
+import { useEffect, useContext } from "react";
+import { Context, Provider } from '../store/appContext.js'
 
 export const Home = () => {
 	
