@@ -1,3 +1,21 @@
 /* 
     General Styles
 */
+
+#navButton {
+    color: yellow;
+    background-color: black;
+    border-color: yellow;
+    border-radius: 5%;
+    height: 50px;
+    width: 250px;
+    margin-right: 3rem;
+}
+
+#navNumber {
+    color: white;
+}
+
+#logo {
+    padding-left: 3rem;
+}

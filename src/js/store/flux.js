@@ -13,31 +13,30 @@ const getState = ({ getStore, getActions, setStore }) => {
       favorites: [],
     },
     actions: {
-      getPeople: () => {
-        fetch("https://www.swapi.tech/api/people")
-          .then((response) => {
-            if (response.status === 200) {
-              console.log("SUCCESSS");
-              return response.json();
-            } else if (response.status === 408) {
-              console.log("SOMETHING WENT WRONG");
-            }
-          })
-          .then((data) => {
+      getPeople: async () => {
+        try {
+          const response = await fetch(`https://www.swapi.tech/api/people`);
+          if (response.ok) {
+            const data = await response.json();
             console.log(data.results);
             setStore({ people: data.results });
-          })
-          .catch((error) => console.log("error has occurred", error));
+          }
+        } catch (error) {
+          throw Error(error);
+        }
       },
 
-      planets: () => {
-        fetch("https://www.swapi.tech/api/planets")
-          .then((response) => response.json())
-          .then((data) => {
+      planets: async () => {
+        try {
+          const response = await fetch(`https://www.swapi.tech/api/planets`);
+          if (response.ok) {
+            const data = await response.json();
             console.log(data.results);
             setStore({ planets: data.results });
-          })
-          .catch((error) => console.log("error has occurred", error));
+          }
+        } catch (error) {
+          throw Error(error);
+        }
       },
 
       planet: async (id) => {
@@ -45,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const response = await fetch(`https://www.swapi.tech/api/planets/1`);
           if (response.ok) {
             const data = await response.json();
-            console.log(data.result.properties);
+            console.log(data.result);
             setStore({ planet: data.result.properties });
           }
         } catch (error) {
@@ -58,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const response = await fetch(`https://www.swapi.tech/api/people/1`);
           if (response.ok) {
             const data = await response.json();
-            console.log(data.result.properties);
+            console.log(data.result);
             setStore({ person: data.result.properties });
           }
         } catch (error) {
@@ -66,16 +65,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      getVehicles: () => {
-        fetch("https://www.swapi.tech/api/vehicles")
-          .then((res) => res.json())
-          .then((data) => {
+      getVehicles: async () => {
+        try {
+          const response = await fetch(`https://www.swapi.tech/api/vehicles`);
+          if (response.ok) {
+            const data = await response.json();
             console.log(data.results);
             setStore({ vehicles: data.results });
-          })
-          .catch((err) => console.error(err));
+          }
+        } catch (error) {
+          throw Error(error);
+        }
       },
-
       getVehicle: async (id) => {
         try {
           const response = await fetch(`https://www.swapi.tech/api/vehicles/7`);
