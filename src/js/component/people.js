@@ -13,7 +13,7 @@ export const People = (props) => {
   }, []);
   const { store, actions } = useContext(Context);
   return (
-    <div className="text-center mt-5">
+    <div className="text-center mt-5 d-flex">
       {store.people.map((person, i) => {
         return (
           <Col>
