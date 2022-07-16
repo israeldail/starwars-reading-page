@@ -12,6 +12,8 @@ export const Planet = props => {
 	return (
 		<div className="jumbotron">
 			<h1> {store.planet.name} </h1>
+
+           
 		</div>
 	);
 };
