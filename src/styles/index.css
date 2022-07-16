@@ -19,3 +19,34 @@
 #logo {
     padding-left: 3rem;
 }
+
+#name {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px;
+    text-decoration: underline;
+}
+
+#description {
+    border: 3px solid yellow;
+    padding-top: 2rem;
+    word-spacing: 1.5px;
+    text-align: center;
+    color: white;
+}
+
+#app {
+    background-color:#a9a9a9;
+}
+
+#traits {
+    padding-top: 2rem;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px;
+    text-decoration: underline;
+}

@@ -10,7 +10,7 @@ import { Vehicles } from "../component/vehicles";
 export const Home = (props) => {
 	
 	return(
-		<div>
+		<div id="body">
 			<People />
 			<Planets />
 			<Vehicles />
