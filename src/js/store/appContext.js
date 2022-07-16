@@ -32,10 +32,7 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			fetch("https://www.swapi.tech/api/planets/1")
-				.then((res) => res.json())
-				.then((data) => console.log(data.result))
-				.catch((err) => console.log("error", err))
+			state.actions.getPeople();
 			
 		}, []);
 
@@ -45,7 +42,6 @@ const injectContext = PassedComponent => {
 		return (
 			<Context.Provider value={state}>
 				<PassedComponent {...props} />
-				<Home {...props} />
 			</Context.Provider>
 		);
 	};
