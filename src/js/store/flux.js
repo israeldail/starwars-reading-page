@@ -26,6 +26,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      getName: (name) => {
+        const store = getStore();
+        setStore({ favorites: [...store.favorites, name] });
+        console.log(store.favorites);
+      },
+
+      deleteFavorites: (index) => {
+        const store = getStore();
+        let filtered = store.favorites.filter((item, i) => i != index);
+        setStore({ favorites: filtered });
+      },
+
+
       planets: async () => {
         try {
           const response = await fetch(`https://www.swapi.tech/api/planets`);

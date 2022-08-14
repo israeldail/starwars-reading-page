@@ -28,13 +28,22 @@ export const People = (props) => {
               />
               <Card.Body>
                 <Card.Title>{person.name}</Card.Title>
-                <Link
-                  style={{ color: "white" }}
-                  to={`people/${person.uid}`}
-                >
+                <Link style={{ color: "white" }} to={`people/${person.uid}`}>
                   <Button variant="primary">Learn More</Button>
                 </Link>
-                <Button className="heart" variant="warning">
+                <Button
+                  onClick={() => {
+                    if (store.favorites.includes(person.name)) {
+                      console.log("Ive been clicked");
+
+                      return alert("user already favorited this character");
+                    } else {
+                      actions.getName(person.name);
+                    }
+                  }}
+                  className="heart"
+                  variant="warning"
+                >
                   <i className="far fa-heart" />
                 </Button>
               </Card.Body>

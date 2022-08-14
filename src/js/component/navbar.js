@@ -1,22 +1,41 @@
 import React from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+
   return (
-    <nav id="logo" className="navbar navbar-light bg-dark mb-3">
-      <img
-        src="https://cdn.mos.cms.futurecdn.net/HoV9PTARj4sSSKHq8ScVFB.jpg"
-        height="100"
-        width="200"
-      ></img>
-      <div class="dropdown">
-        <button className="navButton" id="dropbtn">
-          Favorites <span id="navNumber">0</span>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
+    <nav className="navbar navbar-light bg-light">
+      <div className="container">
+        <Link to="/">
+          <span className="navbar-brand mb-0 h1">Star Wars API</span>
+        </Link>
+        <div class="dropdown">
+          <button
+            class="navButton"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Favorites
+          </button>
+          <ul class="dropdown-menu">
+            {store.favorites.map((item, index) => {
+              return (
+                <li>
+                  <a class="dropdown-item" href="#">
+                    {item}
+                  </a>
+                  <button onClick={()=>{
+                    
+                     actions.deleteFavorites(index)}
+                     }> Delete </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </nav>
