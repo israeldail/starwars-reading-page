@@ -41,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       planet: async (id) => {
         try {
-          const response = await fetch(`https://www.swapi.tech/api/planets/1`);
+          const response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
           if (response.ok) {
             const data = await response.json();
             console.log(data.result);
@@ -54,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getPerson: async (id) => {
         try {
-          const response = await fetch(`https://www.swapi.tech/api/people/1`);
+          const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
           if (response.ok) {
             const data = await response.json();
             console.log(data.result);
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getVehicle: async (id) => {
         try {
-          const response = await fetch(`https://www.swapi.tech/api/vehicles/7`);
+          const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`);
           if (response.ok) {
             const data = await response.json();
             console.log(data.result);

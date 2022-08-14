@@ -16,11 +16,11 @@ export const Vehicles = (props) => {
     <div className="text-center mt-5 d-flex">
       {store.vehicles.map((vehicles, i) => {
         return (
-          <Col>
+          <Col key={i}>
             <Card
               className="bg-dark text-white space"
               style={{ width: "20rem" }}
-              key={i}
+
             >
               <Card.Img
                 className="imagen"

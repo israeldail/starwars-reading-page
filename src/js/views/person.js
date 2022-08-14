@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
 export const Person = props => {
+	console.log(props)
+	const {id} = useParams();
 	const { store, actions } = useContext(Context);
     console.log(store.person)
     useEffect(() => {
-        actions.getPerson();
+        actions.getPerson(id);
     }, [])
     //let id = props.match.params.id;
 	return (
