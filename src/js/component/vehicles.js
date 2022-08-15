@@ -35,7 +35,19 @@ export const Vehicles = (props) => {
                 >
                   <Button variant="primary">Learn More</Button>
                 </Link>
-                <Button className="heart" variant="warning">
+                <Button
+                  onClick={() => {
+                    if (store.favorites.includes(vehicles.name)) {
+                      console.log("Ive been clicked");
+
+                      return alert("user already favorited this character");
+                    } else {
+                      actions.getName(vehicles.name);
+                    }
+                  }}
+                  className="heart"
+                  variant="warning"
+                >
                   <i className="far fa-heart" />
                 </Button>
               </Card.Body>

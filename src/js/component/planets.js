@@ -35,7 +35,19 @@ export const Planets = (props) => {
                 >
                   <Button variant="primary">Learn More</Button>
                 </Link>
-                <Button className="heart" variant="warning">
+                <Button
+                  onClick={() => {
+                    if (store.favorites.includes(planets.name)) {
+                      console.log("Ive been clicked");
+
+                      return alert("user already favorited this character");
+                    } else {
+                      actions.getName(planets.name);
+                    }
+                  }}
+                  className="heart"
+                  variant="warning"
+                >
                   <i className="far fa-heart" />
                 </Button>
               </Card.Body>
